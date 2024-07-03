@@ -9,19 +9,19 @@ _tárgyfelelős: Horpácsi Dániel_
 ### “Shunting yard” algoritmus
 ### A feladathoz kapcsolódó tudnivalók
 Feladat beadási módja:
-•	Csak olyan megoldást fogadunk el, ami lefordul! A fordítási hibás kódrészletek, félmegoldások kommentben szerepeljenek!
-•	A megoldást egy .hs kiterjesztésű fájlba írjátok!
-•	Ezt a .hs fájlt csomagoljátok be egy .zip állományba!
-•	Az így kapott .zip állományt töltsétek fel Canvasba, a feladat megoldásaként!
-•	A tesztelés eredményét a TMS rendszerben is meg lehet tekinteni!
-•	A megadott függvények típusát másold be a megoldásodba!
-•	A megoldás során lehet használni bármilyen függvényt a szabványkönyvtárból (Hoogle (Linkek egy külső oldalra) ajánlott a könyvtárbeli függvények keresésére).
-•	Tanács: a megoldás megkezdése előtt importáld a Data.Char és Data.List modulokat a szabványkönyvtárból!
-•	A feladatok megoldását mindenki önállóan készítse el!
-•	A feladatokhoz sokszor több tippet is megadtam. Ha szeretnéd próbára tenni a programozási tudásod, próbáld meg a feladatokat a tippek elolvasása nélkül megoldani!
-•	A feladatok pontszámának összege több, mint 20. A maximum 20 ponton felül megszerzett pontokat a plusz-mínuszok pontszámába fogom elszámolni.
-•	A megoldásban többször is szükség lesz hibák jelzésére, amit pl. az error függvénnyel tehetsz meg! Érdemes minden esetben a hibákra specifikus hibaüzeneteket kiírni, hogy a kiértékelés során könnyebben tudd a kódolási hibákat megtalálni.
-o	Amennyiben paramétereket is szeretnél szerepeltetni a hibaüzenetekben, használd a show függvényt, amely tetszőleges Show típusosztály példánnyal rendelkező típus értékének megadja a szöveges reprezentációját!
+- Csak olyan megoldást fogadunk el, ami lefordul! A fordítási hibás kódrészletek, félmegoldások kommentben szerepeljenek!
+A megoldást egy .hs kiterjesztésű fájlba írjátok!
+- Ezt a .hs fájlt csomagoljátok be egy .zip állományba!
+- Az így kapott .zip állományt töltsétek fel Canvasba, a feladat megoldásaként!
+- A tesztelés eredményét a TMS rendszerben is meg lehet tekinteni!
+- A megadott függvények típusát másold be a megoldásodba!
+- A megoldás során lehet használni bármilyen függvényt a szabványkönyvtárból (Hoogle (Linkek egy külső oldalra) ajánlott a könyvtárbeli függvények keresésére).
+- Tanács: a megoldás megkezdése előtt importáld a Data.Char és Data.List modulokat a szabványkönyvtárból!
+- A feladatok megoldását mindenki önállóan készítse el!
+- A feladatokhoz sokszor több tippet is megadtam. Ha szeretnéd próbára tenni a programozási tudásod, próbáld meg a feladatokat a tippek elolvasása nélkül megoldani!
+- A feladatok pontszámának összege több, mint 20. A maximum 20 ponton felül megszerzett pontokat a plusz-mínuszok pontszámába fogom elszámolni.
+- A megoldásban többször is szükség lesz hibák jelzésére, amit pl. az error függvénnyel tehetsz meg! Érdemes minden esetben a hibákra specifikus hibaüzeneteket kiírni, hogy a kiértékelés során könnyebben tudd a kódolási hibákat megtalálni.
+    - Amennyiben paramétereket is szeretnél szerepeltetni a hibaüzenetekben, használd a show függvényt, amely tetszőleges Show típusosztály példánnyal rendelkező típus értékének megadja a szöveges reprezentációját!
 ### Feladatok
 #### unsafeLookup (1 pont)
 Definiálj egy függvényt, amely egy asszociatív listából (kulcs-érték párok listájából) megadja az adott kulcshoz tartozó értéket! Ha a keresett kulcs nem szerepel a listában, a kiértékelés álljon meg egy hibaüzenettel!
@@ -41,10 +41,10 @@ unsafeLookup 0 [(x, ['a'..'z'] !! x) | x <- [0..25]] == 'a'
 ```
 #### parseCharOfBase (2 pont)
 Definiálj egy függvényt amely egész számként megadja az adott számrendszerbeli karakter értékét! Ha az adott karakter nem az adott számrendszer számjegye, a kiértékelés álljon le hibával! A feladatsor szempontjából elég, hogyha a bináris, oktális, decimális és hexadecimális számrendszereket veszed figyelembe, de megvalósíthatod általánosabban is a függvényt! A következő karakterek számítanak validnak ezekben a számrendszerekben:
-•	bináris számrendszer: '0','1'
-•	oktális számrendszer: '0','1','2','3','4','5','6','7'
-•	decimális számrendszer: '0','1','2','3','4','5','6','7','8','9'
-•	hexadecimális számrendszer: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','A','B','C','D','E','F' (ebben az esetben a nagy- és kisbetűs karakterek ugyanazokat a számjegyeket jelölik)
+- bináris számrendszer: '0','1'
+- oktális számrendszer: '0','1','2','3','4','5','6','7'
+- decimális számrendszer: '0','1','2','3','4','5','6','7','8','9'
+- hexadecimális számrendszer: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','A','B','C','D','E','F' (ebben az esetben a nagy- és kisbetűs karakterek ugyanazokat a számjegyeket jelölik)
 ```
 {
 parseCharOfBase :: Integer -> Char -> Integer
@@ -108,13 +108,13 @@ type Token = String
 ```
 #### isOperator (1 pont)
 Add meg azt a függvényt, amely egy karakterről eldönti, hogy egy műveleti jel-e! A következő műveleteket támogasd a megoldásban:
-•	( és ): zárójelek,
-•	+: összeadás,
-•	-: kivonás,
-•	*: szorzás,
-•	/: (egész) osztás,
-•	%: maradékképzés,
-•	~: aritmetikai negáció, vagyis egy szám (-1)-gyel való szorzása
+- ( és ): zárójelek,
+- +: összeadás,
+- -: kivonás,
+- *: szorzás,
+- /: (egész) osztás,
+- %: maradékképzés,
+- ~: aritmetikai negáció, vagyis egy szám (-1)-gyel való szorzása
 ```
 {
 isOperator :: Char -> Bool
@@ -132,8 +132,8 @@ not (isOperator '1')
 ```
 #### tokenize (4 pont)
 Készíts egy olyan függvényt, amely egy teljes kifejezést tartalmazó szöveget felbont tokenekre! A tokenek kétfélék lehetnek:
-•	az előző feladatban szereplő műveleti jelek,
-•	számliterálok.
+- az előző feladatban szereplő műveleti jelek,
+- számliterálok.
 Figyelem! Egyelőre csak Token-ekre bontás a feladat, még nem kell a számliteráloknak megfelelő Integer értékeket előállítani az eredményben!
 ```
 {
@@ -158,9 +158,9 @@ tokenize "( (~9 )  +  ~0o711 )   / ( 0Xcafe%  8 )" == ["(", "(", "~", "9", ")", 
 Tipp: A szóközök nélküli szöveget tulajdonképpen az operátorok mentén kell feldarabolni, és minden darab (az operátorok is) egy-egy tokennek felel meg.
 #### precedence (2 pont)
 Definiálj egy függvény, amely meghatározza az operátorok precedenciáját (egy nemnegatív egész számként)! A függvénynek úgy kell kiosztania ezeket az értékeket, hogy a következő legyen a relatív precedencia a műveletek között:
-•	negáció >
-•	szorzás = osztás = maradékképzés >
-•	összeadás = kivonás.
+- negáció >
+- szorzás = osztás = maradékképzés >
+- összeadás = kivonás.
 Az egy szinten levő műveletek azonos precedenciájúak lesznek. Ha a függvény paramétere nem operátor, akkor a kiértékelés álljon le egy hibával! A zárójelet itt most ne tekintsd műveletnek, ezért nem tartozik hozzá kötési erősség!
 ```
 {
@@ -200,32 +200,32 @@ shunt [] ["3","+","4","*","2","/","(","1","-","5",")"] == ["3", "4", "2", "*", "
 }
 ```
 Tipp: Az algoritmus egy veremben tárolja az operátorokat a kiértékelés során. Ezt a vermet egy listával valósítsd meg (ez lesz a függvény első paramétere)! A függvény második paramétere a feldolgozandó infix tokensorozat. Az algoritmus a következő módon működik:
-•	Ha nincs több feldolgozandó token, akkor az eredmény a verem aktuális tartalma!
-•	Ha van egy első token, akkor a verem tartalma a következő lehetőségek alapján módosul:
-o	Ha az első token egy nyitó zárójel "(", akkor tedd ezt a zárójelet a verem tetejére!
-o	Ha az első token egy záró zárójel ")", akkor vedd ki az összes operátort a verem tetejéről az első nyitó zárójelig "(", és fűzd ezeket az épülő postfix tokensorozat elejére! Ezután a veremből vedd ki a nyitó zárójelet is!
-	Tipp: Ha nem megfelelően zárójelezett a formula, ezt egy hibával lehet jelezni (pl. ebben a lépésben ez felismerhető úgy, hogy nincs a veremben nyitó zárójel)!
-o	Ha az első token egy operátor (ami nem zárójel), akkor vizsgáld meg a vermet:
-	Ha a verem üres, vagy az első eleme nyitó zárójel "(", vagy a feldolgozandó operátor precedenciája nagyobb, mint a verem tetején lévő operátoré, akkor tedd a feldolgozandó operátort a verem tetejére!
-	Egyébként (azaz, ha a feldolgozandó operátor precedenciája kisebb, vagy egyenlő, mint a verem tetején lévőé) vedd ki a verem tetejéről az operátorokat addig, amíg el nem jutsz egy nyitó zárójelig "(", vagy egy olyan operátorig, amelynek a precedenciája már kisebb, mint a feldolgozandó operátoré! A kivett operátorokat fűzd az épülő postfix tokensorozat elejére!
-o	Egyébként feltehető, hogy az első token egy számliterál, fűzd ezt az épülő postfix tokensorozat elejére, és hagyd a vermet változatlanul!
-•	Az algoritmus az előző pontokban leírtak alapján működik tovább a fennmaradó tokensorozatra, a módosított veremmel, miközben a postfix tokensorozatot építi.
+- Ha nincs több feldolgozandó token, akkor az eredmény a verem aktuális tartalma!
+- Ha van egy első token, akkor a verem tartalma a következő lehetőségek alapján módosul:
+    - Ha az első token egy nyitó zárójel "(", akkor tedd ezt a zárójelet a verem tetejére!
+    - Ha az első token egy záró zárójel ")", akkor vedd ki az összes operátort a verem tetejéről az első nyitó zárójelig "(", és fűzd ezeket az épülő postfix tokensorozat elejére! Ezután a veremből vedd ki a nyitó zárójelet is!
+        - Tipp: Ha nem megfelelően zárójelezett a formula, ezt egy hibával lehet jelezni (pl. ebben a lépésben ez felismerhető úgy, hogy nincs a veremben nyitó zárójel)!
+    - Ha az első token egy operátor (ami nem zárójel), akkor vizsgáld meg a vermet:
+        - Ha a verem üres, vagy az első eleme nyitó zárójel "(", vagy a feldolgozandó operátor precedenciája nagyobb, mint a verem tetején lévő operátoré, akkor tedd a feldolgozandó operátort a verem tetejére!
+        - Egyébként (azaz, ha a feldolgozandó operátor precedenciája kisebb, vagy egyenlő, mint a verem tetején lévőé) vedd ki a verem tetejéről az operátorokat addig, amíg el nem jutsz egy nyitó zárójelig "(", vagy egy olyan operátorig, amelynek a precedenciája már kisebb, mint a feldolgozandó operátoré! A kivett operátorokat fűzd az épülő postfix tokensorozat elejére!
+    - Egyébként feltehető, hogy az első token egy számliterál, fűzd ezt az épülő postfix tokensorozat elejére, és hagyd a vermet változatlanul!
+- Az algoritmus az előző pontokban leírtak alapján működik tovább a fennmaradó tokensorozatra, a módosított veremmel, miközben a postfix tokensorozatot építi.
 További tippek:
-•	A feladatot célszerű két részfeladatra bontani:
+- A feladatot célszerű két részfeladatra bontani:
 1.	Add meg az algoritmus egy lépését az aktuális verem állapota, és egy token esetén (a fenti algoritmus 2. pontja, amely az első token feldolgozását írja le)! A részfeladatot megoldó függvény eredménye legyen a módosított veremállapot, illetve a postfix alak elejére fűzendő tokenek listája!
 2.	Írj egy rekurzív függvényt, amely alkalmazza az előző részfeladatban definiált függvényt a tokenlista aktuális elemére! Ne felejtsd el a segédfüggvény által eredményezett vermet és postfix tokensorozatot megfelelően felhasználni!
-•	Hasznos standard függvények ehhez a feladathoz:
-o	take/drop: egy lista első n elemét adja eredményül/dobja el.
-o	takeWhile: egy lista olyan prefixét adja eredményül, amelyben minden elem teljesíti a megadott feltételt. Pl. takeWhile even [2,4,5,6,7,8] == [2,4].
-o	dropWhile: egy lista elejéről eldobja azokat az elemeket, amelyek teljesítik a megadott feltételt. Pl. dropWhile even [2,4,5,6,7,8] == [5,6,7,8].
-•	Érdemes a precedenciák előtt azt ellenőrizni, hogy az adott operátor nyitó zárójel-e, ugyanis a precedence függvény nincs értelmezve a zárójeleken.
+- Hasznos standard függvények ehhez a feladathoz:
+    - take/drop: egy lista első n elemét adja eredményül/dobja el.
+    - takeWhile: egy lista olyan prefixét adja eredményül, amelyben minden elem teljesíti a megadott feltételt. Pl. takeWhile even [2,4,5,6,7,8] == [2,4].
+    - dropWhile: egy lista elejéről eldobja azokat az elemeket, amelyek teljesítik a megadott feltételt. Pl. dropWhile even [2,4,5,6,7,8] == [5,6,7,8].
+- Érdemes a precedenciák előtt azt ellenőrizni, hogy az adott operátor nyitó zárójel-e, ugyanis a precedence függvény nincs értelmezve a zárójeleken.
 #### calculate (5 pont)
 Valósítsd meg a lengyel forma kiértékelésének algoritmusát! Ez az algoritmus szintén egy vermet használ (a függvény első paramétere), de ebben az esetben a műveletek operandusai kerülnek bele. A függvény második paramétere egy postfix kifejezést reprezentáló tokensorozat. Az algoritmus a következő módon működik:
-•	Ha nincs több feldolgozandó token, akkor az eredmény a verem tetején lévő szám!
-o	Tipp: Ha a verem nem egyelemű ebben az esetben, az azt jelenti, hogy a kezdeti tokensorozat nem megfelelően volt formázva, ezt lehet hibával jelezni!
-•	Ha van egy első feldolgozandó token, akkor az algoritmus következő lehetőségek alapján jár el:
-o	Ha az első token egy operátor, akkor a veremből kivesz az operátor paraméterszámának megfelelő számú elemet (ez a negáció "~" esetén 1, minden más operátor esetében 2). A kivett elemekre alkalmazza az operátor által jelzett függvényt, majd a kapott eredményt visszateszi a verem tetejére.
-o	Ha az első token nem operátor, akkor feltételezhető, hogy egy számliterál. Ebben az esetben a számliterálnak megfelelő Integer típusú érték kerül a verem tetejére.
+- Ha nincs több feldolgozandó token, akkor az eredmény a verem tetején lévő szám!
+    - Tipp: Ha a verem nem egyelemű ebben az esetben, az azt jelenti, hogy a kezdeti tokensorozat nem megfelelően volt formázva, ezt lehet hibával jelezni!
+- Ha van egy első feldolgozandó token, akkor az algoritmus következő lehetőségek alapján jár el:
+    - Ha az első token egy operátor, akkor a veremből kivesz az operátor paraméterszámának megfelelő számú elemet (ez a negáció "~" esetén 1, minden más operátor esetében 2). A kivett elemekre alkalmazza az operátor által jelzett függvényt, majd a kapott eredményt visszateszi a verem tetejére.
+    - Ha az első token nem operátor, akkor feltételezhető, hogy egy számliterál. Ebben az esetben a számliterálnak megfelelő Integer típusú érték kerül a verem tetejére.
 ```
 {
 calculate :: [Integer] -> [Token] -> Integer
@@ -244,10 +244,10 @@ calculate [] ["3","4","2","*","1","5","-","/","+"] == 1
 }
 ```
 Tippek:
-•	Érdemes definiálni egy függvényt amely az operátorok tokenjeit leképezi a nekik megfelelő standard függvényre.
-•	Az esetszétválasztás során érdemes a verem méretét is ellenőrizni a feltételekben. Akármelyik lépésben a nem megfelelő veremméret azt jelzi, hogy a kezdeti kifejezés nem volt megfelelően formálva (ezt szintén lehet jelezni futásidejű hibával).
-•	Amikor kétparaméteres operátort alkalmazol a veremből kivett két operandusra, figyelj az operandusok sorrendjére!
-•	Ezt a feladatot is érdemes két lépésben megoldani:
+- Érdemes definiálni egy függvényt amely az operátorok tokenjeit leképezi a nekik megfelelő standard függvényre.
+- Az esetszétválasztás során érdemes a verem méretét is ellenőrizni a feltételekben. Akármelyik lépésben a nem megfelelő veremméret azt jelzi, hogy a kezdeti kifejezés nem volt megfelelően formálva (ezt szintén lehet jelezni futásidejű hibával).
+- Amikor kétparaméteres operátort alkalmazol a veremből kivett két operandusra, figyelj az operandusok sorrendjére!
+- Ezt a feladatot is érdemes két lépésben megoldani:
 1.	Adj meg egy függvényt, amely az algoritmus egy lépését valósítja meg! Ez a függvény adott verem és egy feldolgozandó token alapján eredményezze egy új vermet a fent leírtak alapján!
 2.	Adj meg egy rekurzív függvényt, amely az előző segédfüggvényt alkalmazza a tokensorozat elemeire!
 #### evaluateExp (2 pont)
