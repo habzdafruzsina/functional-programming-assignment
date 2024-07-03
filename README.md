@@ -26,18 +26,14 @@ A megoldást egy .hs kiterjesztésű fájlba írjátok!
 #### unsafeLookup (1 pont)
 Definiálj egy függvényt, amely egy asszociatív listából (kulcs-érték párok listájából) megadja az adott kulcshoz tartozó értéket! Ha a keresett kulcs nem szerepel a listában, a kiértékelés álljon meg egy hibaüzenettel!
 ```
-{
 unsafeLookup :: Eq a =>  a -> [(a,b)]-> b
-}
 ```
 Tesztek:
 ```
-{
 unsafeLookup 1 [(1,1),(2,2)] == 1
 unsafeLookup 2 [(1,1),(2,2)] == 2
 unsafeLookup 25 [(x, ['a'..'z'] !! x) | x <- [0..25]] == 'z'
 unsafeLookup 0 [(x, ['a'..'z'] !! x) | x <- [0..25]] == 'a'
-}
 ```
 #### parseCharOfBase (2 pont)
 Definiálj egy függvényt amely egész számként megadja az adott számrendszerbeli karakter értékét! Ha az adott karakter nem az adott számrendszer számjegye, a kiértékelés álljon le hibával! A feladatsor szempontjából elég, hogyha a bináris, oktális, decimális és hexadecimális számrendszereket veszed figyelembe, de megvalósíthatod általánosabban is a függvényt! A következő karakterek számítanak validnak ezekben a számrendszerekben:
@@ -46,36 +42,28 @@ Definiálj egy függvényt amely egész számként megadja az adott számrendsze
 - decimális számrendszer: '0','1','2','3','4','5','6','7','8','9'
 - hexadecimális számrendszer: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','A','B','C','D','E','F' (ebben az esetben a nagy- és kisbetűs karakterek ugyanazokat a számjegyeket jelölik)
 ```
-{
 parseCharOfBase :: Integer -> Char -> Integer
-}
 ```
 Tesztek:
 ```
-{
 parseCharOfBase 2 '0' == 0
 parseCharOfBase 2 '1' == 1
 all (\(x, y) -> parseCharOfBase 8 x == y) (zip ['0'..'7'] [0..])
 all (\(x, y) -> parseCharOfBase 10 x == y) (zip ['0'..'9'] [0..])
 all (\(x, y) -> parseCharOfBase 16 x == y) (zip (['0'..'9'] ++ ['a'..'f']) [0..])
 all (\(x, y) -> parseCharOfBase 16 x == y) (zip (['0'..'9'] ++ ['A'..'F']) [0..])
-}
 ```
 #### parseInteger (2 pont)
 Definiálj egy olyan függvényt, amely adott bázis szerint feldolgoz egy szöveget és előállítja a neki megfelelő nemnegatív egész számot! Ha a feldolgozandó szöveg üres, vagy a bázisnak nem megfelelő karaktereket tartalmaz, akkor a kiértékelés álljon meg egy hibaüzenettel!
 ```
-{
 parseInteger :: Int -> String -> Integer
-}
 ```
 Tesztek:
 ```
-{
 parseInteger 16 "CafeBabe" == 3405691582
 parseInteger 10 "123456789" == 123456789
 parseInteger 8  "576" == 382
 parseInteger 2  "100010" == 34
-}
 ```
 #### parseLiteral (3 pont)
 Készíts egy függvényt, amely kiegészíti a nemnegatív számok szöveges beolvasását. A függvény egy prefix alapján eldönti, hogy milyen számrendszerben kell értelmezni a prefix utáni számjegyeket!
@@ -83,13 +71,10 @@ A lehetséges prefixek: 0b, 0B = bináris szám, 0o, 0O = oktális szám, 0x, 0X
 Ha a szöveg nem tartalmaz semmilyen prefixet, akkor tízes számrendszerbeli értéknek tekintsd a teljes szöveget!
 Ha a paraméterül kapott szöveg üres, akkor a kiértékelés álljon meg a hibaüzenettel!
 ```
-{
     parseLiteral :: String -> Integer
-}
 ```
 Tesztek:
 ```
-{
 parseLiteral "0x100beef" == 16826095
 parseLiteral "0X100beef" == 16826095
 parseLiteral "0o723" == 467
@@ -97,14 +82,11 @@ parseLiteral "0O32132" == 13402
 parseLiteral "727282353" == 727282353
 parseLiteral "0b100010" == 34
 parseLiteral "0B100010" == 34
-}
 ```
 Tipp: Definiálj egy segédfüggvényt, amely eldönti egy szövegről, hogy milyen számrendszernek megfelelő prefixet jelöl!
 A kód olvashatósága érdekében vezesd be a következő típusszinonimát!
 ```
-{
 type Token = String
-}
 ```
 #### isOperator (1 pont)
 Add meg azt a függvényt, amely egy karakterről eldönti, hogy egy műveleti jel-e! A következő műveleteket támogasd a megoldásban:
@@ -116,19 +98,15 @@ Add meg azt a függvényt, amely egy karakterről eldönti, hogy egy műveleti j
 - %: maradékképzés,
 - ~: aritmetikai negáció, vagyis egy szám (-1)-gyel való szorzása
 ```
-{
 isOperator :: Char -> Bool
-}
 ```
 Tesztek:
 ```
-{
 isOperator '('
 isOperator '+'
 all isOperator ['(', ')', '+', '-', '~', '/', '%', '*']
 not (isOperator 'x')
 not (isOperator '1')
-}
 ```
 #### tokenize (4 pont)
 Készíts egy olyan függvényt, amely egy teljes kifejezést tartalmazó szöveget felbont tokenekre! A tokenek kétfélék lehetnek:
@@ -136,13 +114,10 @@ Készíts egy olyan függvényt, amely egy teljes kifejezést tartalmazó szöve
 - számliterálok.
 Figyelem! Egyelőre csak Token-ekre bontás a feladat, még nem kell a számliteráloknak megfelelő Integer értékeket előállítani az eredményben!
 ```
-{
     tokenize :: String -> [Token]
-    }
-```
+    ```
 Tesztek:
 ```
-{
 tokenize "" == []
 tokenize "0x12AA" == ["0x12AA"]
 tokenize "1 + 2" == ["1", "+", "2"]
@@ -153,7 +128,6 @@ tokenize "(b1+b0010)*3" == ["(", "b1", "+", "b0010", ")", "*", "3"]
 tokenize "3*(1 +  2)" == ["3", "*", "(", "1", "+", "2", ")"] 
 tokenize "0x4D5A*2+0o32-~111" == ["0x4D5A", "*", "2", "+", "0o32", "-", "~", "111"]
 tokenize "( (~9 )  +  ~0o711 )   / ( 0Xcafe%  8 )" == ["(", "(", "~", "9", ")", "+", "~", "0o711", ")", "/", "(","0Xcafe", "%", "8", ")"]
-}
 ```
 Tipp: A szóközök nélküli szöveget tulajdonképpen az operátorok mentén kell feldarabolni, és minden darab (az operátorok is) egy-egy tokennek felel meg.
 #### precedence (2 pont)
@@ -163,29 +137,22 @@ Definiálj egy függvény, amely meghatározza az operátorok precedenciáját (
 - összeadás = kivonás.
 Az egy szinten levő műveletek azonos precedenciájúak lesznek. Ha a függvény paramétere nem operátor, akkor a kiértékelés álljon le egy hibával! A zárójelet itt most ne tekintsd műveletnek, ezért nem tartozik hozzá kötési erősség!
 ```
-{
 precedence :: Token -> Int
-}
 ```
 Tesztek:
 ```
-{
 precedence "+" == precedence "-"
 (precedence "/" == precedence "*") && (precedence "%" == precedence "/")
 precedence "+" < precedence "*"
 (precedence "~" > precedence "+") && (precedence "~" > precedence "*")
-}
 ```
 #### shunt (5 pont)
 Valósítsd meg Dijkstra “shunting yard” algoritmusát (Linkek egy külső oldalra) a shunt függvénnyel! Az algoritmus működésének szemléltetése ittLinkek egy külső oldalra található. A feladatsorban használt operátorok mindegyike balasszociatív, így nem kell a megoldásban az asszociativitást külön vizsgálni! Ha szereted a kihívást, próbáld meg kizárólag ezen források és a tesztek alapján megoldani a feladatot!
 ```
-{
     shunt :: [Token] -> [Token] -> [Token]
-}
 ```
 Tesztek:
 ```
-{
 shunt [] ["1"] == ["1"]
 shunt [] ["(","999",")"] == ["999"]
 shunt [] ["(","(","(","22",")",")",")"] == ["22"]
@@ -197,7 +164,6 @@ shunt [] ["(","(","2","*","238",")","/","(","1956","+","77",")",")"] == ["2", "2
 shunt [] ["~","(","19","%","2",")","*","~","(","472","/","3",")"] == ["19", "2", "%", "~", "472", "3", "/", "~", "*"]
 shunt [] ["3","+","4","*","2","/","(","1","-","5",")"] == ["3", "4", "2", "*", "1", "5", "-", "/", "+"]
 ["3", "4"] ++ shunt ["*", "+"] ["2", "/", "(", "1", "-", "5"] == ["3", "4", "2", "*", "1", "5", "-", "(", "/", "+"]
-}
 ```
 Tipp: Az algoritmus egy veremben tárolja az operátorokat a kiértékelés során. Ezt a vermet egy listával valósítsd meg (ez lesz a függvény első paramétere)! A függvény második paramétere a feldolgozandó infix tokensorozat. Az algoritmus a következő módon működik:
 - Ha nincs több feldolgozandó token, akkor az eredmény a verem aktuális tartalma!
@@ -227,13 +193,10 @@ Valósítsd meg a lengyel forma kiértékelésének algoritmusát! Ez az algorit
     - Ha az első token egy operátor, akkor a veremből kivesz az operátor paraméterszámának megfelelő számú elemet (ez a negáció "~" esetén 1, minden más operátor esetében 2). A kivett elemekre alkalmazza az operátor által jelzett függvényt, majd a kapott eredményt visszateszi a verem tetejére.
     - Ha az első token nem operátor, akkor feltételezhető, hogy egy számliterál. Ebben az esetben a számliterálnak megfelelő Integer típusú érték kerül a verem tetejére.
 ```
-{
 calculate :: [Integer] -> [Token] -> Integer
-}
 ```
 Tesztek:
 ```
-{
 calculate [] ["3"] == 3
 calculate [11] ["~"] == -11
 calculate [2,1] ["/"] == 0
@@ -241,7 +204,6 @@ calculate [2,1] ["-"] == -1
 calculate [] ["3","2","+"] == 5
 calculate [] ["3","2","+","4","*"] == 20
 calculate [] ["3","4","2","*","1","5","-","/","+"] == 1
-}
 ```
 Tippek:
 - Érdemes definiálni egy függvényt amely az operátorok tokenjeit leképezi a nekik megfelelő standard függvényre.
@@ -253,17 +215,13 @@ Tippek:
 #### evaluateExp (2 pont)
 Az előbbi függvények segítségével definiáld azt a függvényt, amely szöveges formában megadott infix kifejezések eredményét számolja ki!
 ```
-{
 evaluateExp :: String -> Integer
-}
 ```
 Tesztek:
 ```
-{
 evaluateExp "42" == 42
 evaluateExp "11 + 22" == 33
 evaluateExp "11 + ~22" == -11
 evaluateExp "3 + 4 * 2 / ( 1 - 5 )" == 1
-}
 ```
 
